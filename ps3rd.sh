@@ -219,7 +219,7 @@ function ps3_to_kodi() {
 	while : 
 	do
 	    # hexdumps waits for event .. redirect stdrr output
-	    last_command=$(hexdump -s 18 -n 2 -e '1/2 "%04x"' "$ps3_interface" 2> /dev/null)
+	    last_command=$(hexdump -s 42 -n 2 -e '1/2 "%04x"' "$ps3_interface" 2> /dev/null)
 		
 		# hexdump exits with 1 when something went wrong, especially when event handler disconnected 
 		if [ $? != 0 ] || [ -z $last_command ] || [ "$last_command" = "0000" ]; then
